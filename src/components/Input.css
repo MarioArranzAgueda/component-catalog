@@ -1,0 +1,44 @@
+.input {
+  width: 100%;
+  position: relative;
+  width: 100%;
+  height: 48px;
+  border-bottom: solid 1px black;
+}
+
+.input.error {
+  border-bottom: solid 1px red;
+}
+.input.error label {
+  color: red;
+}
+
+.input input {
+  border: none;
+  z-index: 1;
+  height: 20px;
+  width: 90%;
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  outline: none;
+}
+
+.input button {
+  border-radius: 50%;
+  padding: 2px 8px;
+}
+
+.input label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  transition: top 0.5s;
+  transition: font-size 0.5s;
+  z-index: 2;
+}
+
+.input label.focus {
+  top: 2px;
+  font-size: 12px;
+}
