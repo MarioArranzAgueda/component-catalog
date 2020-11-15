@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-[![CircleCI](https://circleci.com/gh/MarioArranzAgueda/component-catalog/tree/master.svg?style=shield&circle-token=53013439b396fc1b5667135912d2bb5d559fed1f)](https://app.circleci.com/pipelines/github/heafic)
+[![CircleCI](https://circleci.com/gh/MarioArranzAgueda/component-catalog/tree/master.svg?style=svg&circle-token=53013439b396fc1b5667135912d2bb5d559fed1f)](https://app.circleci.com/pipelines/github/heafic)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
