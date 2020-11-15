@@ -1,0 +1,6 @@
+.checkbox.disabled label {
+  color: silver;
+}
+.checkbox.disabled input {
+  color: silver;
+}

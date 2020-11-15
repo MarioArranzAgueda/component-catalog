@@ -1,9 +1,17 @@
 import "./Input.css";
 import React, { useState, useEffect } from "react";
 export default function Input(props) {
-  const { autoFocus = false, label, required } = props;
+  const {
+    value,
+    placeholder,
+    autoFocus = false,
+    label,
+    required,
+    events = {},
+  } = props;
+  const { onChange } = events;
   const [focus, setFocus] = useState(autoFocus);
-  const [text, setText] = useState("");
+  const [interalValue, setInternalValue] = useState(value);
   const textInput = React.createRef();
 
   useEffect(() => {
@@ -13,7 +21,10 @@ export default function Input(props) {
   });
 
   const changeEvent = (event) => {
-    setText(event.target.value);
+    setInternalValue(event.target.value);
+    if (typeof onChange === "function") {
+      onChange(event.target.value);
+    }
   };
 
   const stateEvent = (state) => {
@@ -21,10 +32,16 @@ export default function Input(props) {
   };
 
   return (
-    <div className={`input ${required && !text && !focus ? "error" : ""}`}>
-      {label && <label className={focus || text ? "focus" : ""}>{label}</label>}
+    <div
+      className={`input${required && !interalValue && !focus ? " error" : ""}`}
+    >
+      {label && (
+        <label className={focus || interalValue ? "focus" : ""}>{label}</label>
+      )}
 
       <input
+        value={interalValue}
+        placeholder={placeholder}
         ref={textInput}
         type="text"
         onFocus={() => stateEvent(true)}

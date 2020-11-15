@@ -3,15 +3,25 @@ import React from "react";
 import Input from "./Input";
 
 export default {
-  title: "Example/Input",
+  title: "Components/Input",
   component: Input,
 };
 
 const Template = (args) => <Input {...args} />;
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
-  autoFocus: true,
-  label: "Hola",
-  required: true,
+export const WithoutValue = Template.bind({});
+WithoutValue.args = {
+  value: "",
+  placeholder: "",
+  autoFocus: false,
+  label: "Name",
+  required: false,
+};
+export const WithValue = Template.bind({});
+WithValue.args = {
+  value: "John Doe",
+  placeholder: "",
+  autoFocus: false,
+  label: "Name",
+  required: false,
 };
