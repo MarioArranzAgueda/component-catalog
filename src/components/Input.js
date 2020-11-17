@@ -1,6 +1,8 @@
+import React, { useState, forwardRef } from "react";
+import PropTypes from "prop-types";
 import "./Input.css";
-import React, { useState, useEffect } from "react";
-export default function Input(props) {
+
+const Input = forwardRef((props, ref) => {
   const {
     value,
     placeholder,
@@ -12,13 +14,6 @@ export default function Input(props) {
   const { onChange } = events;
   const [focus, setFocus] = useState(autoFocus);
   const [interalValue, setInternalValue] = useState(value);
-  const textInput = React.createRef();
-
-  useEffect(() => {
-    if (focus) {
-      textInput.current.focus();
-    }
-  });
 
   const changeEvent = (event) => {
     setInternalValue(event.target.value);
@@ -40,9 +35,9 @@ export default function Input(props) {
       )}
 
       <input
+        ref={ref}
         value={interalValue}
         placeholder={placeholder}
-        ref={textInput}
         type="text"
         onFocus={() => stateEvent(true)}
         onBlur={() => stateEvent(false)}
@@ -50,4 +45,14 @@ export default function Input(props) {
       />
     </div>
   );
-}
+});
+
+Input.propTypes = {
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  required: PropTypes.bool,
+  events: PropTypes.object,
+};
+
+export default Input;

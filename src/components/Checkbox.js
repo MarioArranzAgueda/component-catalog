@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useState } from "react";
+import PropTypes from "prop-types";
+
 import "./Checkbox.css";
-export default function Checkbox(props) {
+
+const Checkbox = forwardRef((props, ref) => {
   const {
     label,
     isChecked,
@@ -11,8 +14,6 @@ export default function Checkbox(props) {
 
   const { onChangeEvent } = events;
   const [checked, setChecked] = useState(isChecked);
-
-  useEffect(() => {});
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -26,6 +27,7 @@ export default function Checkbox(props) {
         {labelDirection === "left" ? label : null}
         <input
           type="checkbox"
+          ref={ref}
           disabled={disabled}
           checked={checked}
           onChange={handleChange}
@@ -34,4 +36,13 @@ export default function Checkbox(props) {
       </label>
     </div>
   );
-}
+});
+
+Checkbox.propTypes = {
+  labelDirection: PropTypes.oneOf(["right", "left"]),
+  label: PropTypes.string,
+  isChecked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  events: PropTypes.object,
+};
+export default Checkbox;

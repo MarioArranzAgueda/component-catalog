@@ -1,5 +1,6 @@
 {
-  "name": "todo-list",
+  "name": "component-catalog",
+  "author": "Mario Arranz Águeda",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

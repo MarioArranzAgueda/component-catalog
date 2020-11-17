@@ -1,3 +1,10 @@
+.checkbox label {
+  cursor: pointer;
+}
+.checkbox label input {
+  cursor: pointer;
+}
+
 .checkbox.disabled label {
   color: silver;
 }
